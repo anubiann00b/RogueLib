@@ -15,6 +15,11 @@ public abstract class Roguelike extends JFrame implements KeyListener {
     private AsciiPanel terminal;
     private Screen screen;
     
+    /**
+     * Creates a new Roguelike game.
+     * 
+     * @param startScreen The starting Screen.
+     */
     public Roguelike(Screen startScreen) {
         super();
         terminal = new AsciiPanel(80,24);
@@ -25,6 +30,11 @@ public abstract class Roguelike extends JFrame implements KeyListener {
         repaint();
     }
     
+    /**
+     * Repaints the Screen.
+     * 
+     * Should not be called explicitly by user.
+     */
     @Override
     public void repaint() {
         terminal.clear();
@@ -33,14 +43,11 @@ public abstract class Roguelike extends JFrame implements KeyListener {
     }
     
     @Override
-    public void keyPressed(KeyEvent e) { }
-    
-    @Override
-    public void keyReleased(KeyEvent e) { }
-    
-    @Override
     public void keyTyped(KeyEvent e) {
         screen = screen.update(e.getKeyChar());
         repaint();
     }
+    
+    @Override public void keyPressed(KeyEvent e) { }
+    @Override public void keyReleased(KeyEvent e) { }
 }
