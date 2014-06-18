@@ -43,11 +43,11 @@ public abstract class Roguelike extends JFrame implements KeyListener {
     }
     
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
         screen = screen.update(e.getKeyChar());
         repaint();
     }
     
-    @Override public void keyPressed(KeyEvent e) { }
+    @Override public void keyTyped(KeyEvent e) { }
     @Override public void keyReleased(KeyEvent e) { }
 }
